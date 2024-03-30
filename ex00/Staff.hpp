@@ -1,15 +1,20 @@
 #ifndef STAFF_HPP
 # define STAFF_HPP
 
-class Form;
-
+# include "Form.hpp"
 # include "Person.hpp"
 
 class Staff : public Person {
     private:
 
     public:
-        void sign(Form* p_form);
+        Staff(std::string &p_name) : Person(p_name) {}
+        void sign(Form* p_form) {
+            if (p_form == NULL) {
+                return ;
+            }
+            p_form->execute();
+        }
 };
 
 #endif

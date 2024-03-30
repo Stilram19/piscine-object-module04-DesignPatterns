@@ -4,15 +4,21 @@
 # include <iostream>
 # include <vector>
 
-class Room;
+# include "Room.hpp"
 
 class Person {
     private:
         std::string _name;
         Room* _currentRoom;
+
     public:
         Person(std::string p_name);
-        Room* room() { return (_currentRoom); }
+
+    public:
+        const std::string &get_name();
+        Room* room();
+        void exitCurrentRoom();
+        void enter(Room *room);
 };
 
 #endif

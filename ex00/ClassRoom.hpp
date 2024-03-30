@@ -7,11 +7,14 @@ class Course;
 
 class ClassRoom : public Room {
     private:
-        Course* _currentRoom;
+        Course* _currentCourse;
 
     public:
-        ClassRoom();
-        void assignCourse(Course* p_course);
+        ClassRoom() : _currentCourse(NULL) {}
+
+        void assignCourse(Course* p_course) {
+            this->_currentCourse = p_course;
+        }
 };
 
 #endif
