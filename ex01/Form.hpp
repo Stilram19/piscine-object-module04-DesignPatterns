@@ -1,7 +1,12 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include "Enums.hpp"
+enum FormType {
+	CourseFinished,
+	NeedMoreClassRoom,
+	NeedCourseCreation,
+	SubscriptionToCourse
+};
 
 class Form {
     private:

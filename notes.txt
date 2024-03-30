@@ -1,0 +1,8 @@
+(*) About The Factory Design Pattern: It's all about loose-coupling and encapsulating
+the process of object creations. The high level module using the factory method is
+only depending on Abstraction, but how? ==> It depends on two abstractions, the first is
+the abstraction implemented by the objects created by the factory method (the return value
+of the factory is a reference or pointer to the Interface or Abstract class type), the second
+is the abstraction implemented by the concrete factory (Since a concrete factory must 
+depend on these concrete objects in order to finish its task, we're using Abstraction to
+prevent our high module from depending on the concrete factory which is a low module in this case).
