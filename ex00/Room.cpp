@@ -39,7 +39,7 @@ void Room::exit(Person *person) {
     for (std::vector<Person *>::const_iterator occupant = this->_occupants.begin(); occupant != this->_occupants.end(); occupant++) {
         if (person == *occupant) {
             this->_occupants.erase(occupant);
-            person->exitCurrentRoom();
+            person->exit();
             break ;
         }
     }

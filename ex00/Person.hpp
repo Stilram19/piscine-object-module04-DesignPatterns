@@ -17,7 +17,7 @@ class Person {
     public:
         const std::string &get_name();
         Room* room();
-        void exitCurrentRoom();
+        void exit();
         void enter(Room *room);
 };
 

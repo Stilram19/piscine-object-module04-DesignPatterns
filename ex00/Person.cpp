@@ -6,7 +6,7 @@ const std::string &Person::get_name() { return (this->_name); }
 
 Room* Person::room() { return (this->_currentRoom); }
 
-void Person::exitCurrentRoom() {
+void Person::exit() {
     if (this->_currentRoom == NULL) {
         return ;
     }

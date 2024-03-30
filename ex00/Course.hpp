@@ -7,7 +7,7 @@
 class Student;
 class Professor;
 
-# define NUMBER_OF_CLASS_TO_GRADUATE 10
+# define NUMBER_OF_CLASS_TO_GRADUATE 60
 # define MAX_NUMBER_OF_STUDENTS 20
 
 class Course {
