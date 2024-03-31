@@ -3,7 +3,7 @@
 
 void SubscriptionToCourseForm::execute() {
     if (this->student == NULL || this->course == NULL) {
-        return ;// can't execute the form
+        return ;// form doesn't have important informations
     }
 
     this->course->subscribe(this->student);

@@ -6,6 +6,8 @@
 
 class Classroom;
 
+// This class is a concrete Command, implementing the Command "Form"
+
 class NeedMoreClassRoomForm : public Form {
     private:
         Classroom *classroom;
@@ -16,7 +18,6 @@ class NeedMoreClassRoomForm : public Form {
 
     public:
         virtual void execute();
-        Classroom *get_classroom() const;
 };
 
 #endif

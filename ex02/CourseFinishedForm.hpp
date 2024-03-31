@@ -5,9 +5,11 @@
 
 class Course;
 
+// This class is a concrete Command, implementing the Command "Form"
+
 class CourseFinishedForm : public Form {
     private:
-        Course *_course; // course to end
+        Course *_course; // the receiver in the command design pattern
 
     public:
         CourseFinishedForm() : _course(NULL), Form(FormType::CourseFinished) {}

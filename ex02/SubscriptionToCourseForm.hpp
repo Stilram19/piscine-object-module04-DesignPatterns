@@ -6,10 +6,12 @@ class Course;
 
 # include "Form.hpp"
 
+// This class is a concrete Command, implementing the Command "Form"
+
 class SubscriptionToCourseForm : public Form {
     private:
         Student *student;
-        Course *course;
+        Course *course; // the receiver in the command design pattern
 
     public:
         SubscriptionToCourseForm() : student(NULL), course(NULL), Form(FormType::SubscriptionToCourse) {}

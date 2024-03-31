@@ -5,6 +5,8 @@ class Course;
 
 # include "Form.hpp"
 
+// This class is a concrete Command, implementing the Command "Form"
+
 class NeedCourseCreationForm : public Form
 {
     private:
@@ -23,7 +25,6 @@ class NeedCourseCreationForm : public Form
     public:
         virtual void execute();
         void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, std::string &course_name);
-        Course *get_course() const;
 };
 
 #endif
