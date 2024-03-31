@@ -4,13 +4,19 @@
 # include "Form.hpp"
 # include <iostream>
 
+class Classroom;
+
 class NeedMoreClassRoomForm : public Form {
     private:
+        Classroom *classroom;
 
     public:
-        void execute() {
-            std::cout << "Need More Class Room Form is executed!" << std::endl;
-        }
+        NeedMoreClassRoomForm() : classroom(NULL), Form(FormType::NeedMoreClassRoom) {}
+        ~NeedMoreClassRoomForm() {}
+
+    public:
+        virtual void execute();
+        Classroom *get_classroom() const;
 };
 
 #endif

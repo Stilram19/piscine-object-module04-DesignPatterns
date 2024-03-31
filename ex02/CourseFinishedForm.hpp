@@ -3,11 +3,18 @@
 
 # include "Form.hpp"
 
+class Course;
+
 class CourseFinishedForm : public Form {
     private:
+        Course *_course; // course to end
 
     public:
-        void execute();
+        CourseFinishedForm() : _course(NULL), Form(FormType::CourseFinished) {}
+
+    public:
+        virtual void execute();
+        void fill_in(Course *course);
 };
 
 #endif

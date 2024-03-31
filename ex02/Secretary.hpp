@@ -1,20 +1,21 @@
 #ifndef SECRETARY_HPP
 # define SECRETARY_HPP
 
-# include "Form.hpp"
+# include "Enums.hpp"
 # include "Staff.hpp"
-# include "CourseFinishedForm.hpp"
-# include "NeedMoreClassRoomForm.hpp"
-# include "SubscriptionToCourseForm.hpp"
+
+class Form;
 
 class Secretary : public Staff {
     private:
+        // std::vector<Form *> from_archive;
+
+    public:
+        Secretary(std::string &p_name) : Staff(p_name) {}
 
     public:
         // this function may also be static
-        Form* createForm(FormType p_formType) {
-            
-        }
+        virtual Form* createForm(FormType p_formType);
         void archiveForm();
 };
 
