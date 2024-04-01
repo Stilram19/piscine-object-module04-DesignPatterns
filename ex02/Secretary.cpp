@@ -1,30 +1,25 @@
-#ifndef SECRETARY_HPP
-# define SECRETARY_HPP
-
+# include "Secretary.hpp"
 # include "CourseFinishedForm.hpp"
 # include "NeedCourseCreationForm.hpp"
 # include "NeedMoreClassRoomForm.hpp"
 # include "SubscriptionToCourseForm.hpp"
 
-Form* createForm(FormType p_formType) {
-    if (p_formType == FormType::CourseFinished) {
+Form* Secretary::createForm(FormType p_formType) {
+    if (p_formType == CourseFinished) {
         return (new CourseFinishedForm());
     }
-    if (p_formType == FormType::NeedCourseCreation) {
+    if (p_formType == NeedCourseCreation) {
         return (new NeedCourseCreationForm());
     }
-    if (p_formType == FormType::NeedMoreClassRoom) {
+    if (p_formType == NeedMoreClassRoom) {
         return (new NeedMoreClassRoomForm());
     }
-    if (p_formType == FormType::SubscriptionToCourse) {
+    if (p_formType == SubscriptionToCourse) {
         return (new SubscriptionToCourseForm());
     }
     return (NULL);
 }
 
-void archiveForm() {
-
+void Secretary::archiveForm() {
+    // no idea
 }
-
-
-#endif

@@ -17,14 +17,14 @@ class NeedCourseCreationForm : public Form
 
     public:
         NeedCourseCreationForm() \
-            : _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
-            , course(NULL), Form(FormType::NeedCourseCreation) {}
+            : Form(NeedCourseCreation), _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
+            , course(NULL) {}
 
         ~NeedCourseCreationForm() {}
 
     public:
         virtual void execute();
-        void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, std::string &course_name);
+        void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, const std::string &course_name);
 };
 
 #endif

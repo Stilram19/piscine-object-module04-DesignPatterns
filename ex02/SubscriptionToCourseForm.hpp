@@ -14,7 +14,7 @@ class SubscriptionToCourseForm : public Form {
         Course *course; // the receiver in the command design pattern
 
     public:
-        SubscriptionToCourseForm() : student(NULL), course(NULL), Form(FormType::SubscriptionToCourse) {}
+        SubscriptionToCourseForm() : Form(SubscriptionToCourse) ,student(NULL), course(NULL) {}
 
     public:
         virtual void execute();

@@ -4,7 +4,7 @@
 # include <iostream>
 # include "Enums.hpp"
 
-// this is the Command interface (the Command design pattern)
+// this is the Command interface
 
 class Form {
     private:
@@ -12,6 +12,7 @@ class Form {
 
     public:
         Form(FormType p_formType) : _formType(p_formType) {}
+        virtual ~Form() {}
         virtual void execute() = 0;
 };
 

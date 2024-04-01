@@ -13,7 +13,7 @@ class NeedMoreClassRoomForm : public Form {
         Classroom *classroom;
 
     public:
-        NeedMoreClassRoomForm() : classroom(NULL), Form(FormType::NeedMoreClassRoom) {}
+        NeedMoreClassRoomForm() : Form(NeedMoreClassRoom), classroom(NULL) {}
         ~NeedMoreClassRoomForm() {}
 
     public:

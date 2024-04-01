@@ -12,7 +12,7 @@ class CourseFinishedForm : public Form {
         Course *_course; // the receiver in the command design pattern
 
     public:
-        CourseFinishedForm() : _course(NULL), Form(FormType::CourseFinished) {}
+        CourseFinishedForm() : Form(CourseFinished), _course(NULL) {}
 
     public:
         virtual void execute();

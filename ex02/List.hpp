@@ -2,6 +2,7 @@
 # define LIST_HPP
 
 # include <vector>
+# include <iostream>
 
 template<class T>
 class List {

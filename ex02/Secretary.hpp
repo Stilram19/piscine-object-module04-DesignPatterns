@@ -14,8 +14,7 @@ class Secretary : public Staff {
         Secretary(std::string &p_name) : Staff(p_name) {}
 
     public:
-        // this function may also be static
-        virtual Form* createForm(FormType p_formType);
+        static Form* createForm(FormType p_formType);
         void archiveForm();
 };
 

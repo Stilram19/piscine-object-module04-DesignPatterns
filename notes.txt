@@ -1,15 +1,15 @@
-(*) About The Factory Design Pattern: It's all about loose-coupling and encapsulating
-the process of object creations. The high level module using the factory is
-only depending on Abstraction, but how? ==> It depends on two abstractions, the first is
-the abstraction implemented by the concrete products that are created by concrete factories (the return value
-of the factory is a reference or pointer to the Interface or Abstract class type), the second
-is the abstraction implemented by the concrete factory (Since a concrete factory must 
-depend on these concrete objects in order to finish its task, we're using Abstraction to
-prevent our high module from depending on the concrete factory which is a low module in this case).
-
-(*) About The Command Design Pattern: Unlike the Factory Design Pattern, which is
-a creational design pattern, the Command Design Pattern is a behavioral pattern, but
-they have the same purpose: Encapsulation and Modules decoupling (in this case, decoupling
-the sender from the receiver). The invoker is the
-class requesting the execution of the command. The client creates the invoker and the concrete commands.
-And the receiver is the class that knows how to execute the command (it is used by the concrete command).
+(*) About Factory Design Pattern in this example: there is no need to create a Factory
+interface or Abstract class, since there is only one client (the main function), which
+means this client should be able to instantiate objects from concrete products.
+In another example where there is at least one client that doesn't need to know about
+the concrete Factory, we'll consider using Abstraction. The problem is
+that (according to the subject) the Factory cannot supply parameters to the concrete
+commands, so i have to inject them through setters, and since these setters aren't
+part of the contract set by the Command Interface, and they are crucial if you want
+to execute the concrete commands, using the Interface is redundant. So using factory
+is also redundant. (the factory is returning a pointer to the Command Interface
+which cannot be used to supply the parameters for each concrete command).
+The solution proposed by my Friend Oussama is dynamic cast (casting the Form into its
+subtypes), this will solve this problem: The factory will encapsulate the object creation
+logic and returns a Form *, which is then casted to the appropriate concrete form, and
+then supplied by the corresponding parameters and signed by the headmaster...
