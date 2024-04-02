@@ -8,6 +8,8 @@ class Headmaster;
 # include "Person.hpp"
 # include <map>
 
+// the Professor and the Student modules are decoupled using the mediator design pattern
+
 class Student : public Person {
     private:
         int passedCoursesCount;

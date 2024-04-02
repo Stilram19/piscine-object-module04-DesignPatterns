@@ -34,7 +34,7 @@ void Professor::assignCourse(Course *p_course) {
 }
 
 void Professor::requestNewClassroomCreation() {
-        // requesting the creation of the form
+        // requesting of the form
     NeedMoreClassRoomForm *needMoreClassRoomForm = dynamic_cast<NeedMoreClassRoomForm *>(this->headmaster->getNewForm(NeedMoreClassRoom));
 
     if (needMoreClassRoomForm == NULL) {
@@ -46,7 +46,7 @@ void Professor::requestNewClassroomCreation() {
 }
 
 void Professor::requestCourseCreation(int _minimumGradeToGraduate, int _maximumNumberOfStudents, const std::string &courseName) {
-    // requesting the creation of the form
+    // requesting the form
     NeedCourseCreationForm *needCourseCreationForm = dynamic_cast<NeedCourseCreationForm *>(this->headmaster->getNewForm(NeedCourseCreation));
 
     if (needCourseCreationForm == NULL) {
@@ -60,7 +60,11 @@ void Professor::requestCourseCreation(int _minimumGradeToGraduate, int _maximumN
 }
 
 void Professor::doClass() {
-    if (this->numberOfDoneClasses == this->numberOfClasses || this->_currentCourse == NULL) {
+    if (this->numberOfDoneClasses == this->numberOfClasses) {
+        return ;
+    }
+
+    if (this->_currentCourse == NULL) {
         return ;
     }
 
@@ -90,7 +94,7 @@ void Professor::closeCourse() {
         return ;
     }
 
-    // requesting the creation of the form
+    // requesting the form
     CourseFinishedForm *courseFinishedForm = dynamic_cast<CourseFinishedForm *>(this->headmaster->getNewForm(CourseFinished));
 
     if (courseFinishedForm == NULL) {

@@ -9,6 +9,8 @@ class Headmaster;
 
 # include "Staff.hpp"
 
+// the Professor and the Student modules are decoupled using the mediator design pattern
+
 class Professor : public Staff {
     private:
         int numberOfClasses;// the number of classes that a student needs to attend

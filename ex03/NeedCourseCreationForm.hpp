@@ -15,12 +15,11 @@ class NeedCourseCreationForm : public Form
         int _maximumNumberOfStudents;
         std::string course_name;
         Professor *responsable;
-        Course *course;
 
     public:
         NeedCourseCreationForm() \
             : Form(NeedCourseCreation), _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
-            , responsable(NULL), course(NULL) {}
+            , responsable(NULL) {}
 
         ~NeedCourseCreationForm() {}
 

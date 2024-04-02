@@ -4,10 +4,6 @@
 # include "Professor.hpp"
 
 void NeedCourseCreationForm::execute() {
-    if (this->course != NULL) {
-        return ;// the form has already been executed
-    }
-
     if (this->responsable == NULL) {
         return ;
     }

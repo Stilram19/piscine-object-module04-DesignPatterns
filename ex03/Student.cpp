@@ -52,7 +52,7 @@ void Student::subscribe(Course *p_course) {
         return ;
     }
 
-    // requesting the creation of the form
+    // requesting of the form
     SubscriptionToCourseForm *subscriptionToCourseForm = dynamic_cast<SubscriptionToCourseForm *>(this->headmaster->getNewForm(SubscriptionToCourse));
 
     if (subscriptionToCourseForm == NULL) {

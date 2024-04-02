@@ -5,10 +5,8 @@
 # include "Secretary.hpp"
 
 Headmaster::~Headmaster() {
-    std::vector<Form *>::iterator form = this->_formToValidate.begin();
-
-    while (form != this->_formToValidate.end()) {
-        delete *form;
+    for (std::vector<Form *>::const_iterator form = this->_formToValidate.begin(); form != this->_formToValidate.end(); form++) {
+        delete (*form);
     }
 }
 
@@ -44,6 +42,7 @@ void Headmaster::receiveForm(Form* p_form) {
     }
 
     if (this->hasForm(p_form)) {
+
         return ;// already there
     }
 
@@ -65,7 +64,7 @@ void Headmaster::sign(Form *p_form) {
     this->deleteForm(p_form);
 }
 
-void Headmaster::commandProfToAttendClass(Professor *prof) {
+void Headmaster::askProfToAttendClass(Professor *prof) {
     if (prof == NULL) {
         return ;
     }
@@ -86,5 +85,8 @@ Form *Headmaster::getNewForm(FormType formtype) {
         return (NULL);//no secretary to create the requested form
     }
 
-    return (this->secretary->createForm(formtype));
+    Form *form = this->secretary->createForm(formtype);
+
+    this->receiveForm(form);
+    return (form);
 }

@@ -35,7 +35,7 @@ class Headmaster : public Staff {
         virtual void sign(Form *p_form);
 
     public:
-        void commandProfToAttendClass(Professor *prof);
+        void askProfToAttendClass(Professor *prof);
         void commandStudentToAttendClass(Student *student, Classroom *classroom);
         Form *getNewForm(FormType formtype);// returns a new form to be filled
 };
