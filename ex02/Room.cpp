@@ -7,7 +7,7 @@ Room::Room() {
     this->ID = count++;
 }
 
-bool Room::canEnter(Person *person) {
+bool Room::canEnter(Person *person) const {
     if (person == NULL) {
         return (false);
     }

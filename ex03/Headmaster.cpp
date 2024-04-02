@@ -2,7 +2,15 @@
 # include "Form.hpp"
 # include "Professor.hpp"
 # include "Student.hpp"
-# include "ISecretary.hpp"
+# include "Secretary.hpp"
+
+Headmaster::~Headmaster() {
+    std::vector<Form *>::iterator form = this->_formToValidate.begin();
+
+    while (form != this->_formToValidate.end()) {
+        delete *form;
+    }
+}
 
 bool Headmaster::hasForm(Form *p_form) {
     if (p_form == NULL) {
@@ -54,6 +62,7 @@ void Headmaster::sign(Form *p_form) {
     }
 
     p_form->execute();
+    this->deleteForm(p_form);
 }
 
 void Headmaster::commandProfToAttendClass(Professor *prof) {
@@ -74,7 +83,7 @@ void Headmaster::commandStudentToAttendClass(Student *student, Classroom *classr
 
 Form *Headmaster::getNewForm(FormType formtype) {
     if (this->secretary == NULL) {
-        return ;//no secretary to create the requested form
+        return (NULL);//no secretary to create the requested form
     }
 
     return (this->secretary->createForm(formtype));

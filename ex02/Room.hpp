@@ -15,7 +15,7 @@ class Room {
 		Room();
 
 	public:
-		bool canEnter(Person *person);
+		bool canEnter(Person *person) const;
 		void enter(Person *person);
 		void exit(Person *person);
 		void printOccupant() const;

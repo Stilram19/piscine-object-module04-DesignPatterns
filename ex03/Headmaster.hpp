@@ -2,11 +2,12 @@
 # define HEADMASTER_HPP
 
 # include "Staff.hpp"
+# include "Enums.hpp"
 
 class Professor;
 class Student;
 class Classroom;
-class ISecretary;
+class Secretary;
 
 // this class represents the invoker or the sender (of the Command "Form")
 // as you see it is independent from the receiver ("Course" in case of CourseFinishedForm
@@ -17,12 +18,12 @@ class ISecretary;
 
 class Headmaster : public Staff {
     private:
-        ISecretary           *secretary;
+        Secretary           *secretary;
         std::vector<Form *> _formToValidate;
 
     public:
-        Headmaster(ISecretary *secretary, std::string &p_name) : secretary(secretary), Staff(p_name) {}
-        ~Headmaster() {}
+        Headmaster(Secretary *secretary, std::string &p_name) : Staff(p_name), secretary(secretary) {}
+        ~Headmaster();
 
     private:
         bool hasForm(Form *p_form);

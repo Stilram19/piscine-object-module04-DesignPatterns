@@ -1,6 +1,5 @@
 # include "Student.hpp"
 # include "Classroom.hpp"
-# include "Course.hpp"
 
 bool Student::is_subscribed(Course *p_course) {
     for (std::vector<Course *>::const_iterator course = this->_subscribedCourse.begin(); course != this->_subscribedCourse.end(); course++) {
@@ -52,5 +51,4 @@ void Student::subscribe(Course *p_course) {
     }
 
     this->_subscribedCourse.push_back(p_course);
-    p_course->subscribe(this);
 }

@@ -2,6 +2,7 @@
 # define LIST_HPP
 
 # include <vector>
+# include <algorithm>
 # include <iostream>
 
 template<class T>
@@ -35,6 +36,15 @@ class List {
                     return ;
                 }
             }
+        }
+
+        T* findItemIf(bool (*fun)(T *)) {
+            typename std::vector<T *>::iterator item = std::find_if(this->items.begin(), this->items.end(), fun);
+
+            if (item != this->items.end()) {
+                return (*item);
+            }
+            return (NULL);
         }
 
         size_t size() const {

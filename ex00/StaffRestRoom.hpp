@@ -3,11 +3,6 @@
 
 # include "Room.hpp"
 
-class StaffRestRoom : public Room {
-    private:
-
-    public:
-
-};
+class StaffRestRoom : public Room {};
 
 #endif

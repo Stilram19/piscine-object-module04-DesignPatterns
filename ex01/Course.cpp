@@ -12,5 +12,4 @@ void Course::subscribe(Student* p_student) {
         }
     }
     this->_students.push_back(p_student);
-    p_student->subscribe(this);
 }

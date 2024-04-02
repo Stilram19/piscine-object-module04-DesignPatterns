@@ -10,14 +10,11 @@ class Classroom : public Room {
         Course* _currentCourse;
 
     public:
-        Classroom() : _currentCourse(NULL) {}
+        Classroom();
 
     public:
-        Course *current_course() { return (this->_currentCourse); }
-
-        void assignCourse(Course* p_course) {
-            this->_currentCourse = p_course;
-        }
+        Course *current_course();
+        void assignCourse(Course* p_course);
 };
 
 #endif

@@ -1,6 +1,7 @@
 # include "Course.hpp"
 # include "Student.hpp"
 # include "Professor.hpp"
+# include "CourseFinishedForm.hpp"
 
 const std::string &Course::get_name() { return (this->_name); }
 
@@ -27,13 +28,14 @@ void Course::subscribe(Student* p_student) {
         }
     }
     this->_students.push_back(p_student);
-    p_student->subscribe(this);
 }
 
 void Course::close() {
     // demanding from the responsable to close the course
+    int mandatoryNumberOfClasses = 0;
+
     if (this->_responsable != NULL) {
-        this->_responsable->closeCourse();
+        mandatoryNumberOfClasses = this->_responsable->getNumberOfClasses();
         this->_responsable = NULL;
     }
 
@@ -41,7 +43,9 @@ void Course::close() {
     std::vector<Student *>::iterator student = this->_students.begin();
 
     while (student != this->_students.end()) {
-        (*student)->graduate(this);
+        if ((*student)->getNumberOfAttendedClasses(this) >= mandatoryNumberOfClasses) {
+           (*student)->graduate(this);
+        }
         student = this->_students.erase(student);
     }
 }

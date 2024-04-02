@@ -13,3 +13,6 @@ The solution proposed by my Friend Oussama is dynamic cast (casting the Form int
 subtypes), this will solve this problem: The factory will encapsulate the object creation
 logic and returns a Form *, which is then casted to the appropriate concrete form, and
 then supplied by the corresponding parameters and signed by the headmaster...
+
+(*) Using Forword declaration as much as possible and seprating the declaration and the 
+definition of a class, helps a loooooot in decoupling modules.

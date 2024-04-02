@@ -6,9 +6,10 @@
 
 class Student;
 class Professor;
+class CourseFinishedForm;
 
-# define GLOBAL_MINIMUM_GRADE_TO_GRADUATE 60
-# define GLOBAL_MAX_NUMBER_OF_STUDENTS 20
+# define DEFAULT_MINIMUM_GRADE_TO_GRADUATE 60
+# define DEFAULT_MAX_NUMBER_OF_STUDENTS 20
 
 class Course {
     private:
@@ -20,7 +21,7 @@ class Course {
 
     public:
         Course(std::string p_name) : _name(p_name), _responsable(NULL), \
-            _minimumGradeToGraduate(GLOBAL_MINIMUM_GRADE_TO_GRADUATE),  _maximumNumberOfStudents(GLOBAL_MAX_NUMBER_OF_STUDENTS) {}
+            _minimumGradeToGraduate(DEFAULT_MINIMUM_GRADE_TO_GRADUATE),  _maximumNumberOfStudents(DEFAULT_MAX_NUMBER_OF_STUDENTS) {}
 
     public:
         const std::string &get_name();
@@ -33,15 +34,15 @@ class Course {
     public:
         void setMinimumGradeToGraduate(int new_value) {
             this->_minimumGradeToGraduate = new_value;
-            if (new_value < GLOBAL_MINIMUM_GRADE_TO_GRADUATE) {
-                this->_minimumGradeToGraduate = GLOBAL_MINIMUM_GRADE_TO_GRADUATE;
+            if (new_value < DEFAULT_MINIMUM_GRADE_TO_GRADUATE) {
+                this->_minimumGradeToGraduate = DEFAULT_MINIMUM_GRADE_TO_GRADUATE;
             }
         }
 
         void setMaximumNumberOfStudents(int new_value) {
             this->_maximumNumberOfStudents = new_value;
-            if (new_value > GLOBAL_MAX_NUMBER_OF_STUDENTS) {
-                this->_maximumNumberOfStudents = GLOBAL_MAX_NUMBER_OF_STUDENTS;
+            if (new_value > DEFAULT_MAX_NUMBER_OF_STUDENTS) {
+                this->_maximumNumberOfStudents = DEFAULT_MAX_NUMBER_OF_STUDENTS;
             }
         }
 

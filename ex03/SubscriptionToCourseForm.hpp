@@ -11,7 +11,8 @@ class Course;
 class SubscriptionToCourseForm : public Form {
     private:
         Student *student;
-        Course *course; // the receiver in the command design pattern
+        Course *course; // the receiver in this context (it means the Course knows how
+        // execute this concrete command)
 
     public:
         SubscriptionToCourseForm() : Form(SubscriptionToCourse) ,student(NULL), course(NULL) {}

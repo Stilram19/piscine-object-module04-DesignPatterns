@@ -6,6 +6,7 @@ void SubscriptionToCourseForm::execute() {
         return ;// form doesn't have important informations
     }
 
+    // letting the receiver complete the job
     this->course->subscribe(this->student);
 }
 

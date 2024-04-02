@@ -9,7 +9,8 @@ class Course;
 
 class CourseFinishedForm : public Form {
     private:
-        Course *_course; // the receiver in the command design pattern
+        Course *_course; // the receiver in this context (it means the Course knows how
+        // execute this concrete command)
 
     public:
         CourseFinishedForm() : Form(CourseFinished), _course(NULL) {}

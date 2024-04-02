@@ -19,15 +19,11 @@ class Course {
         int _maximumNumberOfStudent;
 
     public:
-        Course(std::string p_name) : _name(p_name), _responsable(NULL), \
-            _numberOfClassToGraduate(NUMBER_OF_CLASS_TO_GRADUATE),  _maximumNumberOfStudent(MAX_NUMBER_OF_STUDENTS) {}
+        Course(std::string p_name);
 
-        const std::string &get_name() { return (this->_name); }
-
-        void assign(Professor* p_professor) {
-           this->_responsable = p_professor;
-        }
-
+    public:
+        const std::string &get_name();
+        void assign(Professor* p_professor);
         void subscribe(Student* p_student);
 };
 

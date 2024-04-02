@@ -8,9 +8,7 @@ class NeedMoreClassRoomForm : public Form {
     private:
 
     public:
-        void execute() {
-            std::cout << "Need More Class Room Form is executed!" << std::endl;
-        }
+        void execute();
 };
 
 #endif

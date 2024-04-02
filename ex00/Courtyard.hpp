@@ -3,11 +3,6 @@
 
 # include "Room.hpp"
 
-class Courtyard : public Room {
-    private:
-
-    public:
-
-};
+class Courtyard : public Room {};
 
 #endif

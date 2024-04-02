@@ -6,7 +6,7 @@
 
 class Form;
 
-// this is the concrete Factory class (implementing the Factory ISecretary)
+// this class represents the Factory producing concrete Commands
 
 class Secretary : public Staff {
     private:

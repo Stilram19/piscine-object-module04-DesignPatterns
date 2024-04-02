@@ -51,4 +51,5 @@ void Headmaster::sign(Form *p_form) {
     }
 
     p_form->execute();
+    this->deleteForm(p_form);
 }

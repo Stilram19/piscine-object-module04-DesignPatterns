@@ -2,6 +2,7 @@
 # define NEED_COURSE_CREATION_FORM_HPP
 
 class Course;
+class Professor;
 
 # include "Form.hpp"
 
@@ -13,18 +14,20 @@ class NeedCourseCreationForm : public Form
         int _minimumGradeToGraduate;
         int _maximumNumberOfStudents;
         std::string course_name;
+        Professor *responsable;
         Course *course;
 
     public:
         NeedCourseCreationForm() \
             : Form(NeedCourseCreation), _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
-            , course(NULL) {}
+            , responsable(NULL), course(NULL) {}
 
         ~NeedCourseCreationForm() {}
 
     public:
         virtual void execute();
-        void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, const std::string &course_name);
+        void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, \
+            const std::string &course_name, Professor *responsable);
 };
 
 #endif

@@ -1,16 +1,14 @@
 #ifndef SECRETARY_HPP
 # define SECRETARY_HPP
 
-# include "Form.hpp"
+class Form;
+
 # include "Staff.hpp"
+# include "Enums.hpp"
 
 class Secretary : public Staff {
-    private:
-
     public:
-        Form* createForm(FormType p_formType) {
-            
-        }
+        Form* createForm(FormType p_formType);
         void archiveForm();
 };
 
