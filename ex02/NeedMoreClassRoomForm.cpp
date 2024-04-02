@@ -7,7 +7,7 @@ void NeedMoreClassRoomForm::execute() {
         return ;//form has already been executed
     }
 
-    // adding the new Class room to the RoomList
+    // adding the Class room to the RoomList
     RoomList &instance_ref = RoomList::get_instance();
 
     instance_ref.addItem(new Classroom());

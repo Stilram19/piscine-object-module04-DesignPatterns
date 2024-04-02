@@ -12,8 +12,10 @@ class Student;
 # include "List.hpp"
 
 // The static functions repitition is important, you cannot do it otherwise
-// since these functions are instantiating an object, and you cannot instantiate an object
-// of one of these classes outside its definition.
+// (declaring one generic function in the base class template, means making the List
+// template class depend on every derived class, which is rediculous)
+// if you're asking why? because instantiating an object from a class cannot be
+// using incomplete types (forward declarations).
 
 class CourseList : public List<Course> {
     // making it impossible to instantiate objects from outside the class definition
@@ -21,6 +23,9 @@ class CourseList : public List<Course> {
     private:
         CourseList() {}
         CourseList(const CourseList &);
+
+    public:
+        ~CourseList();
 
     public:
         // returns the only and only instance in the program
@@ -39,6 +44,9 @@ class RoomList : public List<Room> {
         RoomList(const RoomList &);
 
     public:
+        ~RoomList();
+
+    public:
         // returns the only and only instance in the program
         static RoomList &get_instance() {
             static RoomList instance;
@@ -55,6 +63,9 @@ class StaffList : public List<Staff> {
         StaffList(const StaffList &);
 
     public:
+        ~StaffList();
+
+    public:
         // returns the only and only instance in the program
         static StaffList &get_instance() {
             static StaffList instance;
@@ -69,6 +80,9 @@ class StudentList : public List<Student> {
     private:
         StudentList() {}
         StudentList(const StudentList &);
+
+    public:
+        ~StudentList();
 
     public:
         // returns the only and only instance in the program

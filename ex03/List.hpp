@@ -7,7 +7,7 @@
 
 template<class T>
 class List {
-    private:
+    protected:
         std::vector<T *> items;
 
     private:
@@ -16,7 +16,7 @@ class List {
 
     public:
         List() {}
-        ~List() {}
+        virtual ~List() {}
 
     public:
         void addItem(T *p_item) {

@@ -1,12 +1,6 @@
 # include "Room.hpp"
 # include "Person.hpp"
 
-Room::Room() {
-    static long long count = 0;
-
-    this->ID = count++;
-}
-
 bool Room::is_free() const {
     return (this->_occupants.size() == 0);
 }

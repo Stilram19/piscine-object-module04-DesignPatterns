@@ -12,7 +12,12 @@ class Room {
 		std::vector<Person*> _occupants;
 
 	public:
-		Room();
+		Room() {
+			static long long count = 0;
+
+    		this->ID = count++;
+		}
+		virtual ~Room() {}
 
 	public:
 		bool is_free() const;

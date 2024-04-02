@@ -30,6 +30,7 @@ void Headmaster::deleteForm(Form *p_form) {
 
     for (std::vector<Form *>::iterator form = this->_formToValidate.begin(); form != this->_formToValidate.end(); form++) {
         if (*form == p_form) {
+            delete *form;
             this->_formToValidate.erase(form);
             return ;
         }
@@ -41,8 +42,7 @@ void Headmaster::receiveForm(Form* p_form) {
         return ;
     }
 
-    if (this->hasForm(p_form)) {
-
+    if (this->hasForm(p_form) == true) {
         return ;// already there
     }
 
@@ -86,7 +86,6 @@ Form *Headmaster::getNewForm(FormType formtype) {
     }
 
     Form *form = this->secretary->createForm(formtype);
-
     this->receiveForm(form);
     return (form);
 }

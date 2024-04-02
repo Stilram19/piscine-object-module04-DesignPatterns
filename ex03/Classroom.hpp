@@ -11,6 +11,7 @@ class Classroom : public Room {
 
     public:
         Classroom() : _currentCourse(NULL) {}
+        ~Classroom() {}
 
     public:
         Course *current_course() { return (this->_currentCourse); }
