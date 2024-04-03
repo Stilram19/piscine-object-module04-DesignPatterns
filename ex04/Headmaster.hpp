@@ -9,6 +9,7 @@ class Professor;
 class Student;
 class Classroom;
 class Secretary;
+class Bell;
 
 // this class represents the invoker or the sender (of the Command "Form")
 // as you see it is independent from the receiver ("Course" in case of CourseFinishedForm
@@ -20,9 +21,10 @@ class Secretary;
 class Headmaster : public Staff, public List<Form> {
     private:
         Secretary   *secretary;
+        Bell        *bell;
 
     public:
-        Headmaster(Secretary *secretary, std::string &p_name) : Staff(p_name), secretary(secretary) {}
+        Headmaster(Secretary *secretary, Bell *bell, std::string &p_name) : Staff(p_name), secretary(secretary), bell(bell) {}
         ~Headmaster();
 
     public:
@@ -36,7 +38,7 @@ class Headmaster : public Staff, public List<Form> {
         Form *getNewForm(FormType formtype);// returns a new form to be filled
 
     public:
-
+        void doEvent(Event event);
 };
 
 #endif

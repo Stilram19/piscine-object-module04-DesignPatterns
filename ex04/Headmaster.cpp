@@ -3,6 +3,7 @@
 # include "Professor.hpp"
 # include "Student.hpp"
 # include "Secretary.hpp"
+# include "Bell.hpp"
 
 Headmaster::~Headmaster() {
     for (std::vector<Form *>::const_iterator item = this->items.begin(); item != this->items.end(); item++) {
@@ -52,4 +53,10 @@ Form *Headmaster::getNewForm(FormType formtype) {
     Form *form = this->secretary->createForm(formtype);
     this->receiveForm(form);
     return (form);
+}
+
+void Headmaster::doEvent(Event event) {
+    if (event == RingBell && this->bell != NULL) {
+        this->bell->ring();
+    }
 }

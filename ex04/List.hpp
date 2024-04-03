@@ -60,6 +60,10 @@ class List {
             return (NULL);
         }
 
+        void forEach(void (*fun)(T *)) {
+            std::for_each(this->items.begin(), this->items.end(), fun);
+        }
+
         size_t size() const {
             return (this->items.size());
         }
