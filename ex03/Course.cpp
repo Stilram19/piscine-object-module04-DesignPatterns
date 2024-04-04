@@ -3,6 +3,8 @@
 # include "Professor.hpp"
 # include "CourseFinishedForm.hpp"
 
+Course::~Course() {}
+
 const std::string &Course::get_name() { return (this->_name); }
 
 void Course::assign(Professor* p_professor) {

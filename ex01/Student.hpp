@@ -1,21 +1,16 @@
 #ifndef STUDENT_HPP
 # define STUDENT_HPP
 
+
+# include "Person.hpp"
+# include "List.hpp"
+
 class Course;
 class Classroom;
 
-# include "Person.hpp"
-
-class Student : public Person {
-    private:
-        std::vector<Course*> _subscribedCourse;
-
+class Student : public Person, public List<Course> {
     public:
         Student(std::string &p_name) : Person(p_name) {}
-
-    private:
-        bool is_subscribed(Course *p_course);
-        void erase_course(Course *p_course);
 
     public:
         void attendClass(Classroom *p_classroom);

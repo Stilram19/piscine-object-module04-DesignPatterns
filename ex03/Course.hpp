@@ -20,7 +20,7 @@ class Course : public List<Student> {
     public:
         Course(std::string p_name) : _name(p_name), _responsable(NULL), \
             _minimumGradeToGraduate(DEFAULT_MINIMUM_GRADE_TO_GRADUATE),  _maximumNumberOfStudents(DEFAULT_MAX_NUMBER_OF_STUDENTS) {}
-        ~Course() {}
+        ~Course();
 
     public:
         const std::string &get_name();

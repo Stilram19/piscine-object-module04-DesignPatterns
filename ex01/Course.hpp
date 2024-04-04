@@ -1,8 +1,7 @@
 #ifndef COURSE_HPP
 # define COURSE_HPP
 
-# include <iostream>
-# include <vector>
+# include "List.hpp"
 
 class Student;
 class Professor;
@@ -10,11 +9,10 @@ class Professor;
 # define NUMBER_OF_CLASS_TO_GRADUATE 60
 # define MAX_NUMBER_OF_STUDENTS 20
 
-class Course {
+class Course : List<Student> {
     private:
         std::string _name;
         Professor* _responsable;
-        std::vector<Student*> _students;
         int _numberOfClassToGraduate;
         int _maximumNumberOfStudent;
 

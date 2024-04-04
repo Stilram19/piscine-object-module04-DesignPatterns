@@ -24,7 +24,6 @@ class Student : public Person, public BellObserver {
             headmaster(headmaster), lastAttendedClassroom(NULL) {}
 
     private:
-        bool is_subscribed(Course *p_course) const;
         void erase_course(Course *p_course);
 
     public:
@@ -35,6 +34,7 @@ class Student : public Person, public BellObserver {
         void subscribe(Course *p_course);
 
     public:
+        bool is_subscribed(Course *p_course) const;
         int getPassedCoursesCount() const;
         int getNumberOfAttendedClasses(Course *course);
         int getCoursesCount() const;

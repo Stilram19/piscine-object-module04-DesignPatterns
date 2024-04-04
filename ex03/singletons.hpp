@@ -22,7 +22,7 @@ class CourseList : public List<Course> {
         CourseList(const CourseList &);
 
     public:
-        ~CourseList();
+        ~CourseList() {}
 
     public:
         // returns the only and only instance in the program
@@ -41,7 +41,7 @@ class RoomList : public List<Room> {
         RoomList(const RoomList &);
 
     public:
-        ~RoomList();
+        ~RoomList() {}
 
     public:
         // returns the only and only instance in the program
@@ -60,7 +60,7 @@ class StaffList : public List<Staff> {
         StaffList(const StaffList &);
 
     public:
-        ~StaffList();
+        ~StaffList() {}
     public:
         // returns the only and only instance in the program
         static StaffList &get_instance() {
@@ -78,7 +78,7 @@ class StudentList : public List<Student> {
         StudentList(const StudentList &);
 
     public:
-        ~StudentList();
+        ~StudentList() {}
 
     public:
         // returns the only and only instance in the program

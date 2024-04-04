@@ -1,8 +1,8 @@
 #ifndef LIST_HPP
 # define LIST_HPP
 
-# include <iostream>
 # include <vector>
+# include <iostream>
 
 template<class T>
 class List {
@@ -15,14 +15,25 @@ class List {
 
     public:
         List() {}
-        ~List() {}
+        ~List();
 
     public:
-        void addItem(T *p_item) {
-            for (typename std::vector<T *>::iterator item = this->items.begin(); item != this->items.end(); item++) {
-                if (p_item == *item) {
-                    return ; // already there
+        bool hasItem(T *p_item) {
+            if (p_item == NULL) {
+                return (false);
+            }
+
+            for (typename std::vector<T *>::const_iterator item = this->items.begin(); item != this->items.end(); item++) {
+                if (*item == p_item) {
+                    return (true);
                 }
+            }
+            return (false);
+        }
+
+        void addItem(T *p_item) {
+            if (this->hasItem(p_item) == true) {
+                return ;// already in the list
             }
 
             this->items.push_back(p_item);
@@ -41,5 +52,7 @@ class List {
             return (this->items.size());
         }
 };
+
+# include "List.tpp"
 
 #endif

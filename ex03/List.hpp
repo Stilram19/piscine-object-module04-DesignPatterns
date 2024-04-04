@@ -16,9 +16,9 @@ class List {
 
     public:
         List() {}
-        ~List() {}
+        ~List();
 
-    protected:
+    public:
         bool hasItem(T *p_item) {
             if (p_item == NULL) {
                 return (false);
@@ -32,7 +32,6 @@ class List {
             return (false);
         }
 
-    public:
         void addItem(T *p_item) {
             if (this->hasItem(p_item) == true) {
                 return ;// already in the list
@@ -64,5 +63,7 @@ class List {
             return (this->items.size());
         }
 };
+
+# include "List.tpp"
 
 #endif

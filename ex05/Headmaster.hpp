@@ -24,10 +24,6 @@ class Headmaster : public Staff, public List<Form> {
         Secretary   *secretary;
         Bell        bell;
 
-    private:
-        Headmaster();
-        Headmaster(const Headmaster &);
-
     public:
         Headmaster(std::string &p_name, Secretary *secretary) : Staff(p_name), secretary(secretary) {}
         ~Headmaster();
