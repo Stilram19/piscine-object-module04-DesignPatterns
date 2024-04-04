@@ -35,6 +35,7 @@ class Student : public Person {
     public:
         int getPassedCoursesCount() const;
         int getNumberOfAttendedClasses(Course *course);
+        int getCoursesCount() const;
 };
 
 #endif

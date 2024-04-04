@@ -10,18 +10,18 @@ void test1() {
     std::string firstName("First");
     std::string secondName("Second");
 
-    T item1(firstName);
-    T item2(secondName);
+    T *item1 = new T(firstName);
+    T *item2 = new T(secondName);
     U &ref = U::get_instance();
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 
-    ref.addItem(&item1);
-    ref.addItem(&item2);
+    ref.addItem(item1);
+    ref.addItem(item2);
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 
-    ref.removeItem(&item1);
+    ref.removeItem(item1);
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 }
@@ -29,18 +29,18 @@ void test1() {
 // specialization for Room, RoomList since Room doesn't have a constructor accepting a std::string
 template<>
 void test1<Room, RoomList>() {
-    Room room1;
-    Room room2;
+    Room *room1 = new Room();
+    Room *room2 = new Room();
     RoomList &ref = RoomList::get_instance();
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 
-    ref.addItem(&room1);
-    ref.addItem(&room2);
+    ref.addItem(room1);
+    ref.addItem(room2);
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 
-    ref.removeItem(&room1);
+    ref.removeItem(room1);
 
     std::cout << "List Size is: " << ref.size() << std::endl;
 }

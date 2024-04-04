@@ -126,3 +126,7 @@ void Professor::setNumberOfClasses(int numberOfClasses) {
 int Professor::getNumberOfClasses() const {
     return (this->numberOfClasses);
 }
+
+Course *Professor::getCurrentCourse() const {
+    return (this->_currentCourse);
+}

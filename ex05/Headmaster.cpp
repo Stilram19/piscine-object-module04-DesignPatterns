@@ -3,7 +3,6 @@
 # include "Professor.hpp"
 # include "Student.hpp"
 # include "Secretary.hpp"
-# include "Bell.hpp"
 
 Headmaster::~Headmaster() {
     for (std::vector<Form *>::const_iterator item = this->items.begin(); item != this->items.end(); item++) {
@@ -56,23 +55,15 @@ Form *Headmaster::getNewForm(FormType formtype) {
 }
 
 void Headmaster::doEvent(Event event) {
-    if (event == RingBell && this->bell != NULL) {
-        this->bell->ring();
+    if (event == RingBell) {
+        this->bell.ring();
     }
 }
 
 void Headmaster::addBellObserver(BellObserver *observer) {
-    if (this->bell != NULL) {
-        this->bell->addItem(observer);
-    }
+    this->bell.addItem(observer);
 }
 
 void Headmaster::removeBellOvserver(BellObserver *observer) {
-    if (this->bell != NULL) {
-        this->bell->removeItem(observer);
-    }
-}
-
-void Headmaster::setBell(Bell *bell) {
-    this->bell = bell;
+    this->bell.removeItem(observer);
 }

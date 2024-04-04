@@ -31,6 +31,14 @@ class CourseList : public List<Course> {
 
             return (instance);
         }
+
+        virtual void addItem(Course *new_course) {
+            if (new_course != NULL && this->getCourse(new_course->get_name()) == NULL) {
+                List<Course>::addItem(new_course);
+            }
+        }
+
+        Course *getCourse(const std::string &name) const;
 };
 
 class RoomList : public List<Room> {

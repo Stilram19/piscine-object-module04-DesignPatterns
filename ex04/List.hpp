@@ -16,7 +16,7 @@ class List {
 
     public:
         List() {}
-        virtual ~List() {}
+        ~List() {}
 
     protected:
         bool hasItem(T *p_item) {

@@ -11,9 +11,8 @@ class Student;
 
 # include "List.hpp"
 
-// The static functions repitition is important, you cannot do it otherwise
-// since these functions are instantiating an object, and you cannot instantiate an object
-// of one of these classes outside its definition.
+// the repitition seen in the static get_instance functions is mandatory
+// no instance can be created outside of the singletons definition
 
 class CourseList : public List<Course> {
     // making it impossible to instantiate objects from outside the class definition
@@ -21,6 +20,9 @@ class CourseList : public List<Course> {
     private:
         CourseList() {}
         CourseList(const CourseList &);
+
+    public:
+        ~CourseList();
 
     public:
         // returns the only and only instance in the program
@@ -39,6 +41,9 @@ class RoomList : public List<Room> {
         RoomList(const RoomList &);
 
     public:
+        ~RoomList();
+
+    public:
         // returns the only and only instance in the program
         static RoomList &get_instance() {
             static RoomList instance;
@@ -55,6 +60,8 @@ class StaffList : public List<Staff> {
         StaffList(const StaffList &);
 
     public:
+        ~StaffList();
+    public:
         // returns the only and only instance in the program
         static StaffList &get_instance() {
             static StaffList instance;
@@ -69,6 +76,9 @@ class StudentList : public List<Student> {
     private:
         StudentList() {}
         StudentList(const StudentList &);
+
+    public:
+        ~StudentList();
 
     public:
         // returns the only and only instance in the program

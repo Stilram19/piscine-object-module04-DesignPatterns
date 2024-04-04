@@ -4,12 +4,12 @@
 # include "Staff.hpp"
 # include "Enums.hpp"
 # include "List.hpp"
+# include "Bell.hpp"
 
 class Professor;
 class Student;
-class Classroom;
 class Secretary;
-class Bell;
+class Classroom;
 class BellObserver;
 
 // this class represents the invoker or the sender (of the Command "Form")
@@ -22,10 +22,14 @@ class BellObserver;
 class Headmaster : public Staff, public List<Form> {
     private:
         Secretary   *secretary;
-        Bell        *bell;
+        Bell        bell;
+
+    private:
+        Headmaster();
+        Headmaster(const Headmaster &);
 
     public:
-        Headmaster(Secretary *secretary, Bell *bell, std::string &p_name) : Staff(p_name), secretary(secretary), bell(bell) {}
+        Headmaster(std::string &p_name, Secretary *secretary) : Staff(p_name), secretary(secretary) {}
         ~Headmaster();
 
     public:
@@ -42,7 +46,6 @@ class Headmaster : public Staff, public List<Form> {
         void doEvent(Event event);
         void addBellObserver(BellObserver *observer);
         void removeBellOvserver(BellObserver *observer);
-        void setBell(Bell *bell);
 };
 
 #endif

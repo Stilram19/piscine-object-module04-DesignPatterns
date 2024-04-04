@@ -11,11 +11,8 @@ class Student;
 
 # include "List.hpp"
 
-// The static functions repitition is important, you cannot do it otherwise
-// (declaring one generic function in the base class template, means making the List
-// template class depend on every derived class, which is rediculous)
-// if you're asking why? because instantiating an object from a class cannot be
-// using incomplete types (forward declarations).
+// the repitition seen in the static get_instance functions is mandatory
+// no instance can be created outside of the singletons definition
 
 class CourseList : public List<Course> {
     // making it impossible to instantiate objects from outside the class definition
@@ -64,7 +61,6 @@ class StaffList : public List<Staff> {
 
     public:
         ~StaffList();
-
     public:
         // returns the only and only instance in the program
         static StaffList &get_instance() {

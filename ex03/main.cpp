@@ -10,11 +10,13 @@ void test1() {
     std::string Prof1Name("George");
     std::string Prof2Name("Bob");
     std::string SecretaryName("Bob");
+    std::string StudentName("Howard");
 
     Secretary secretary(SecretaryName);
     Headmaster headmaster(&secretary, headmasterName);
     Professor prof1(Prof1Name, &headmaster);
     Professor prof2(Prof2Name, &headmaster);
+    Student student(&headmaster, StudentName);
 
     RoomList &roomlist_ref = RoomList::get_instance();
     CourseList &courselist_ref = CourseList::get_instance();
@@ -31,6 +33,14 @@ void test1() {
     headmaster.askProfToAttendClass(&prof2);
 
     std::cout << "Number of rooms after both professors request class creation: " << courselist_ref.size() << std::endl;
+
+    student.subscribe(prof1.getCurrentCourse());
+
+    std::cout << "Number of courses the student is enrolled in (after subscribe): " << student.getCoursesCount() << std::endl;
+
+    student.subscribe(prof2.getCurrentCourse());
+
+    std::cout << "Number of courses the student is enrolled in (after subscribe): " << student.getCoursesCount() << std::endl;
 }
 
 int main() {

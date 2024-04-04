@@ -39,7 +39,7 @@ void test() {
     // pointers returned by the factory in order to supply each concrete command by
     // the corresponding parameters.
     courseFinishedForm->fill_in(&course);
-    needCourseCreationForm->fill_in(10, 10, "DataStructuresAndAlgorithms");
+    needCourseCreationForm->fill_in(10, 10, "DataStructuresAndAlgorithms", &prof);
     subscriptionToCourseForm->fill_in(&student, &course);
 
     headmaster.receiveForm(courseFinishedForm);

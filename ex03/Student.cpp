@@ -78,3 +78,7 @@ int Student::getNumberOfAttendedClasses(Course *p_course) {
 
     return (this->_subscribedCourse[p_course]);
 }
+
+int Student::getCoursesCount() const {
+    return (this->_subscribedCourse.size());
+}

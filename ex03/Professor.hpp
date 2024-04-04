@@ -36,6 +36,7 @@ class Professor : public Staff {
     public:
         int getNumberOfClasses() const;
         void setNumberOfClasses(int numberOfClasses);
+        Course *getCurrentCourse() const;
 
     public:
         static bool is_classroom_and_empty(Room *room);

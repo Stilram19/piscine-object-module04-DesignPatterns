@@ -1,12 +1,12 @@
 # include "singletons.hpp"
 # include "Course.hpp"
-# include "Student.hpp"
 # include "Room.hpp"
 # include "Staff.hpp"
+# include "Student.hpp"
 
-// This repitition is necessary, because if having a general destructor in the List template
-// class requires making it depend on all of its derived classes, this violate
-// the Open/Closed principle and will increase coupling between modules.
+// this file was created to the decouple the Room.hpp, Staff.hpp, Student.hpp, Course.hpp
+// from the singletons.hpp, because using the delete operator requires depending on the
+// declaration of the type.
 
 CourseList::~CourseList() {
     for (std::vector<Course *>::iterator item = this->items.begin(); item != this->items.end(); item++) {
