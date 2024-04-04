@@ -4,8 +4,6 @@
 # include "Student.hpp"
 # include "Secretary.hpp"
 
-Headmaster::~Headmaster() {}
-
 void Headmaster::receiveForm(Form* p_form) {
     this->addItem(p_form);
 }

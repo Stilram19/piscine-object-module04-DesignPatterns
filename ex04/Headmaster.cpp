@@ -5,12 +5,6 @@
 # include "Secretary.hpp"
 # include "Bell.hpp"
 
-Headmaster::~Headmaster() {
-    for (std::vector<Form *>::const_iterator item = this->items.begin(); item != this->items.end(); item++) {
-        delete (*item);
-    }
-}
-
 void Headmaster::receiveForm(Form* p_form) {
     this->addItem(p_form);
 }

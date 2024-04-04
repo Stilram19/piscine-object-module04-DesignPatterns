@@ -18,7 +18,7 @@ class Course : public List<Student> {
         int _maximumNumberOfStudents;
 
     public:
-        Course(std::string p_name) : _name(p_name), _responsable(NULL), \
+        Course(std::string p_name) : List<Student>(false), _name(p_name), _responsable(NULL), \
             _minimumGradeToGraduate(DEFAULT_MINIMUM_GRADE_TO_GRADUATE),  _maximumNumberOfStudents(DEFAULT_MAX_NUMBER_OF_STUDENTS) {}
         ~Course() {}
 

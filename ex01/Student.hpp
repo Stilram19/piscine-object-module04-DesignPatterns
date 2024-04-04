@@ -10,7 +10,7 @@ class Classroom;
 
 class Student : public Person, public List<Course> {
     public:
-        Student(std::string &p_name) : Person(p_name) {}
+        Student(std::string &p_name) : Person(p_name), List<Course>(true) {}
 
     public:
         void attendClass(Classroom *p_classroom);

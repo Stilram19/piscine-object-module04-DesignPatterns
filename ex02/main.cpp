@@ -57,11 +57,6 @@ void test() {
 
     std::cout << "After executing the needMoreClassRoomForm, the size of the Room list is " << roomList.size() << std::endl;
     std::cout << "After executing the needCourseCreationForm, the size of the Room list is " << courseList.size() << std::endl;
-
-    delete courseFinishedForm;
-    delete needMoreClassRoomForm;
-    delete needCourseCreationForm;
-    delete subscriptionToCourseForm;
 }
 
 int main() {

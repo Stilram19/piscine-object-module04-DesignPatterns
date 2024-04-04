@@ -12,8 +12,8 @@ void test1() {
     std::string ProfName("Bob");
     std::string SecretaryName("Bob");
     std::string StudentName("Bob");
-    Bell        bell;
 
+    Bell        bell;
     Secretary secretary(SecretaryName);
     Headmaster headmaster(&secretary, &bell, headmasterName);
     Professor prof(ProfName, &headmaster);

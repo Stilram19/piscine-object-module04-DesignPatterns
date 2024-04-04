@@ -25,7 +25,7 @@ class Headmaster : public Staff, public List<Form> {
         Bell        bell;
 
     public:
-        Headmaster(std::string &p_name, Secretary *secretary) : Staff(p_name), secretary(secretary) {}
+        Headmaster(std::string &p_name, Secretary *secretary) : Staff(p_name), List<Form>(true), secretary(secretary) {}
         ~Headmaster();
 
     public:

@@ -17,7 +17,7 @@ class Course : List<Student> {
         int _maximumNumberOfStudent;
 
     public:
-        Course(std::string p_name) : _name(p_name), _responsable(NULL), \
+        Course(std::string p_name) : List<Student>(false), _name(p_name), _responsable(NULL), \
             _numberOfClassToGraduate(NUMBER_OF_CLASS_TO_GRADUATE),  _maximumNumberOfStudent(MAX_NUMBER_OF_STUDENTS) {}
 
         const std::string &get_name() { return (this->_name); }

@@ -9,9 +9,6 @@ class Form;
 // this class represents the Factory producing concrete Commands
 
 class Secretary : public Staff {
-    private:
-        // std::vector<Form *> from_archive;
-
     public:
         Secretary(std::string &p_name) : Staff(p_name) {}
 

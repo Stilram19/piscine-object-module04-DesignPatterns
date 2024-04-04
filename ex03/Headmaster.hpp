@@ -22,8 +22,8 @@ class Headmaster : public Staff, public List<Form> {
         Secretary   *secretary;
 
     public:
-        Headmaster(Secretary *secretary, std::string &p_name) : Staff(p_name), secretary(secretary) {}
-        ~Headmaster();
+        Headmaster(Secretary *secretary, std::string &p_name) : Staff(p_name), List<Form>(true), secretary(secretary) {}
+        ~Headmaster() {}
 
     public:
         void receiveForm(Form *p_form);

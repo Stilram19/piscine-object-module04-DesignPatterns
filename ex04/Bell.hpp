@@ -13,7 +13,7 @@ class Bell : public List<BellObserver> {
         bool isPauseOver;
 
     public:
-        Bell() : isPauseOver(true) {}
+        Bell() : List<BellObserver>(false), isPauseOver(true) {}
         ~Bell() {}
 
     private:

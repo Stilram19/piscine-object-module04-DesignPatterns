@@ -10,7 +10,7 @@
 
 class Headmaster : public Staff, public List<Form> {
     public:
-        Headmaster(std::string &p_name) : Staff(p_name) {}
+        Headmaster(std::string &p_name) : Staff(p_name), List<Form>(true) {}
         ~Headmaster() {}
 
     public:

@@ -5,17 +5,21 @@
 # include <algorithm>
 # include <iostream>
 
+// this class is used in the context that the items are not heap allocated
+// or they are to be managed by the user not by the class
+
 template<class T>
 class List {
+    private:
+        bool isHeapAllocated; // are the items allocated in the heap (using new)?
+
     protected:
         std::vector<T *> items;
 
-    private:
+    public:
+        List(bool isHeapAllocated) : isHeapAllocated(isHeapAllocated) {}
         List(const List &);
         List &operator=(const List &);
-
-    public:
-        List() {}
         ~List();
 
     public:
@@ -43,7 +47,9 @@ class List {
         void removeItem(T *p_item) {
             for (typename std::vector<T *>::iterator item = this->items.begin(); item != this->items.end(); item++) {
                 if (p_item == *item) {
-                    delete *item;
+                    if (this->isHeapAllocated == true) {
+                        delete *item;
+                    }
                     this->items.erase(item);
                     return ;
                 }
@@ -67,5 +73,7 @@ class List {
             return (this->items.size());
         }
 };
+
+# include "List.tpp"
 
 #endif

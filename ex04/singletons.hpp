@@ -18,11 +18,11 @@ class CourseList : public List<Course> {
     // making it impossible to instantiate objects from outside the class definition
     // to adhere to the Singleton design pattern
     private:
-        CourseList() {}
+        CourseList() : List<Course>(true) {}
         CourseList(const CourseList &);
 
     public:
-        ~CourseList();
+        ~CourseList() {}
 
     public:
         // returns the only and only instance in the program
@@ -37,11 +37,11 @@ class RoomList : public List<Room> {
     // making it impossible to instantiate objects from outside the class definition
     // to adhere to the Singleton design pattern
     private:
-        RoomList() {}
+        RoomList() : List<Room>(true) {}
         RoomList(const RoomList &);
 
     public:
-        ~RoomList();
+        ~RoomList() {}
 
     public:
         // returns the only and only instance in the program
@@ -56,11 +56,11 @@ class StaffList : public List<Staff> {
     // making it impossible to instantiate objects from outside the class definition
     // to adhere to the Singleton design pattern
     private:
-        StaffList() {}
+        StaffList() : List<Staff>(true) {}
         StaffList(const StaffList &);
 
     public:
-        ~StaffList();
+        ~StaffList() {}
     public:
         // returns the only and only instance in the program
         static StaffList &get_instance() {
@@ -74,11 +74,11 @@ class StudentList : public List<Student> {
     // making it impossible to instantiate objects from outside the class definition
     // to adhere to the Singleton design pattern
     private:
-        StudentList() {}
+        StudentList() : List<Student>(true) {}
         StudentList(const StudentList &);
 
     public:
-        ~StudentList();
+        ~StudentList() {}
 
     public:
         // returns the only and only instance in the program
