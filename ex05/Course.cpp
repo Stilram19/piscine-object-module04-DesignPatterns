@@ -2,6 +2,7 @@
 # include "Student.hpp"
 # include "Professor.hpp"
 # include "CourseFinishedForm.hpp"
+# include "singletons.hpp"
 
 const std::string &Course::get_name() { return (this->_name); }
 
@@ -36,6 +37,14 @@ void Course::close() {
     while (student != this->items.end()) {
         if ((*student)->getNumberOfAttendedClasses(this) >= mandatoryNumberOfClasses) {
            (*student)->graduate(this);
+
+            std::cout << "Student graduated the course " << this->get_name() << "!" << std::endl;
+            if ((*student)->getCoursesCount() == 0) {
+                // StudentList &instance_ref = StudentList::get_instance();
+
+                std::cout << "Student graduated!" << std::endl;
+                // instance_ref.removeItem(*student);
+            }
         }
         student = this->items.erase(student);
     }

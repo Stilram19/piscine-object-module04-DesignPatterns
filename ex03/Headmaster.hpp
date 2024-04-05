@@ -2,7 +2,8 @@
 # define HEADMASTER_HPP
 
 # include "Staff.hpp"
-# include "Enums.hpp"
+# include "FormTypes.hpp"
+# include "Events.hpp"
 # include "List.hpp"
 
 class Professor;

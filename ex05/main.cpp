@@ -1,44 +1,30 @@
 # include "Headmaster.hpp"
+# include "Headmaster.hpp"
 # include "Professor.hpp"
 # include "Student.hpp"
 # include "Secretary.hpp"
 # include "singletons.hpp"
 # include "Bell.hpp"
-# include "observer.hpp"
+# include "observers.hpp"
+# include "School.hpp"
 
 // Headmaster requires Professor to attend his class
 void test1() {
     std::string headmasterName("Donald");
-    std::string ProfName("Bob");
+    std::string Prof1Name("Bob");
+    std::string Prof2Name("Bob");
+    std::string StudentName1("Bob");
+    std::string StudentName2("Bob");
     std::string SecretaryName("Bob");
-    std::string StudentName("Bob");
-    Bell        bell;
 
-    Secretary secretary(SecretaryName);
-    Headmaster headmaster(&secretary, &bell, headmasterName);
-    Professor prof(ProfName, &headmaster);
-    Student student(&headmaster, StudentName);
+    School school(headmasterName, SecretaryName);
 
-    prof.requestCourseCreation(70, 30, "Template Programming in c++");
-    headmaster.askProfToAttendClass(&prof);
+    Professor prof1(Prof1Name, school.getHeadmaster());
+    Professor prof2(Prof2Name, school.getHeadmaster());
+    Student student1(school.getHeadmaster(), StudentName1);
+    Student student2(school.getHeadmaster(), StudentName2);
 
-    student.subscribe(prof.getCurrentCourse());
-    headmaster.commandStudentToAttendClass(&student, prof.getCurrentClassroom());
-
-    headmaster.addBellObserver(&prof);
-    headmaster.addBellObserver(&student);
-
-    headmaster.doEvent(RingBell);
-
-    if (prof.room() == NULL && student.room() == NULL) {
-        std::cout << "Both Students and Professor exited the classroom for a break." << std::endl;
-    }
-
-    headmaster.doEvent(RingBell);
-
-    if (prof.room() == student.room() && prof.room() != NULL) {
-        std::cout << "Students and Professor are in the classroom, to resume the class." << std::endl;
-    }
+    
 }
 
 int main() {

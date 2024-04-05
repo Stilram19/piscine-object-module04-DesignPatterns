@@ -1,7 +1,7 @@
 #ifndef SECRETARY_HPP
 # define SECRETARY_HPP
 
-# include "Enums.hpp"
+# include "FormTypes.hpp"
 # include "Staff.hpp"
 
 class Form;

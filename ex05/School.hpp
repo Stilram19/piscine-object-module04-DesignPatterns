@@ -17,16 +17,17 @@ class School : public List<Student>, public List<Professor> {
         Headmaster  headmaster;
 
     public:
-        School(std::string headmaster_name, std::string secretary_name) : secretary(secretary_name), headmaster(headmaster_name, &secretary) {}
+        School(std::string &headmaster_name, std::string &secretary_name) : List<Student>(false), List<Professor>(false), \
+            secretary(secretary_name), headmaster(headmaster_name, &secretary) {}
         ~School() {}
 
     public:
         void    launchClasses();
         void    recreationTime(); // break time
         void    runDayRoutine();
-        void    requestRingBell();
-        void    recruteProfessor();
-        void    recruteStudent();
+        void    requestRingBell(Event event);
+        void    recruteProfessor(Professor *professor);
+        void    recruteStudent(Student *student);
 
     // getters
     public:
@@ -34,7 +35,7 @@ class School : public List<Student>, public List<Professor> {
         std::vector<Student*> getStudents() const;
         std::vector<Professor*> getProfessors() const;
         Secretary getSecretary() const;
-        Headmaster getHeadmaster() const;
+        Headmaster *getHeadmaster();
 
     public:
         void graduationCeremony();

@@ -3,7 +3,7 @@
 # include "CourseFinishedForm.hpp"
 # include "NeedCourseCreationForm.hpp"
 # include "NeedMoreClassRoomForm.hpp"
-# include "Enums.hpp"
+# include "FormTypes.hpp"
 # include "Classroom.hpp"
 # include "singletons.hpp"
 

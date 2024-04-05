@@ -86,12 +86,6 @@ int Student::getCoursesCount() const {
     return (this->_subscribedCourse.size());
 }
 
-void Student::pauseStarts() {
-    std::cout << "Student taking a Break!" << std::endl;
-    this->exit();
-}
-
-void Student::pauseOver() {
-    std::cout << "Student's Break is over!" << std::endl;
-    this->enter(this->lastAttendedClassroom);
+void Student::prepareForGraduation() {
+    std::cout << "Student is preparing for Graduation ceremony!" << std::endl;
 }

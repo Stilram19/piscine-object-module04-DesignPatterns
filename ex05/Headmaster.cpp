@@ -3,10 +3,18 @@
 # include "Professor.hpp"
 # include "Student.hpp"
 # include "Secretary.hpp"
+# include "Bells.hpp"
+
+Headmaster::Headmaster(std::string &p_name, Secretary *secretary) : Person(p_name), Staff(p_name), List<Form>(true), secretary(secretary) {
+    Headmaster::bells[BreakRingBell] = new BreakBell();
+    Headmaster::bells[LunchRingBell] = new LunchBell();
+    Headmaster::bells[GraduationRingBell] = new GraduationBell();
+    // adhering to the Open/Closed principle
+}
 
 Headmaster::~Headmaster() {
-    for (std::vector<Form *>::const_iterator item = this->items.begin(); item != this->items.end(); item++) {
-        delete (*item);
+    for (std::map<Event, Bell *>::iterator bell = this->bells.begin(); bell != this->bells.end(); bell++) {
+        delete bell->second;
     }
 }
 
@@ -54,16 +62,44 @@ Form *Headmaster::getNewForm(FormType formtype) {
     return (form);
 }
 
-void Headmaster::doEvent(Event event) {
-    if (event == RingBell) {
-        this->bell.ring();
+void Headmaster::bellRing(Event event) {
+    // adhering to the Open/Closed principle
+    try {
+        Bell *bell = this->bells.at(event);
+
+        bell->ring();
+    }
+    catch (const std::out_of_range &e) {
+        return ;// event not found
     }
 }
 
-void Headmaster::addBellObserver(BellObserver *observer) {
-    this->bell.addItem(observer);
+void Headmaster::subscribeObserverToEvent(BellObserver *observer, Event event) {
+    // adhering to the Open/Closed principle
+    try {
+        Bell *bell = this->bells.at(event);
+
+        bell->addObserver(observer);
+    }
+    catch (const std::out_of_range &e) {
+        return ;// event not found
+    }
 }
 
-void Headmaster::removeBellOvserver(BellObserver *observer) {
-    this->bell.removeItem(observer);
+void Headmaster::subscribeToAllEvents(BellObserver *observer) {
+    for (std::map<Event, Bell *>::iterator bell = this->bells.begin(); bell != this->bells.end(); bell++) {
+        bell->second->addObserver(observer);
+    }
+}
+
+void Headmaster::removeBellOvserver(BellObserver *observer, Event event) {
+    // adhering to the Open/Closed principle
+    try {
+        Bell *bell = this->bells.at(event);
+
+        bell->removeObserver(observer);
+    }
+    catch (const std::out_of_range &e) {
+        return ;// event not found
+    }
 }

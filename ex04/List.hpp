@@ -5,9 +5,6 @@
 # include <algorithm>
 # include <iostream>
 
-// this class is used in the context that the items are not heap allocated
-// or they are to be managed by the user not by the class
-
 template<class T>
 class List {
     private:
@@ -16,10 +13,12 @@ class List {
     protected:
         std::vector<T *> items;
 
-    public:
-        List(bool isHeapAllocated) : isHeapAllocated(isHeapAllocated) {}
+    private:
         List(const List &);
         List &operator=(const List &);
+
+    public:
+        List(bool isHeapAllocated) : isHeapAllocated(isHeapAllocated) {}
         ~List();
 
     public:

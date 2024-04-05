@@ -2,15 +2,15 @@
 # define HEADMASTER_HPP
 
 # include "Staff.hpp"
-# include "Enums.hpp"
+# include "Events.hpp"
 # include "List.hpp"
-# include "Bell.hpp"
+# include <map>
 
 class Professor;
 class Student;
 class Secretary;
 class Classroom;
-class BellObserver;
+class Bell;
 
 // this class represents the invoker or the sender (of the Command "Form")
 // as you see it is independent from the receiver ("Course" in case of CourseFinishedForm
@@ -20,12 +20,17 @@ class BellObserver;
 // depend on concrete Forms because it is also the invoker of the Command "Form").
 
 class Headmaster : public Staff, public List<Form> {
+    // list of subjects (Observer design pattern)
     private:
+        std::map<Event, Bell *>    bells;
         Secretary   *secretary;
-        Bell        bell;
+
+    private:
+        Headmaster(const Headmaster &);
+        Headmaster &operator=(const Headmaster &);
 
     public:
-        Headmaster(std::string &p_name, Secretary *secretary) : Staff(p_name), List<Form>(true), secretary(secretary) {}
+        Headmaster(std::string &p_name, Secretary *secretary);
         ~Headmaster();
 
     public:
@@ -39,9 +44,10 @@ class Headmaster : public Staff, public List<Form> {
         Form *getNewForm(FormType formtype);// returns a new form to be filled
 
     public:
-        void doEvent(Event event);
-        void addBellObserver(BellObserver *observer);
-        void removeBellOvserver(BellObserver *observer);
+        void bellRing(Event event);
+        void subscribeObserverToEvent(BellObserver *observer, Event event);
+        void subscribeToAllEvents(BellObserver *observer);
+        void removeBellOvserver(BellObserver *observer, Event event);
 };
 
 #endif

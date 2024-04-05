@@ -2,7 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Enums.hpp"
+# include "FormTypes.hpp"
 
 // this is the Command interface
 

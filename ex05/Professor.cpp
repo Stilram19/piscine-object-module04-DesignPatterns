@@ -3,7 +3,7 @@
 # include "CourseFinishedForm.hpp"
 # include "NeedCourseCreationForm.hpp"
 # include "NeedMoreClassRoomForm.hpp"
-# include "Enums.hpp"
+# include "FormTypes.hpp"
 # include "Classroom.hpp"
 # include "singletons.hpp"
 
@@ -136,12 +136,6 @@ Course *Professor::getCurrentCourse() const {
     return (this->_currentCourse);
 }
 
-void Professor::pauseStarts() {
-    std::cout << "Professor taking a Break!" << std::endl;
-    this->exit();
-}
-
-void Professor::pauseOver() {
-    std::cout << "Professor's Break is over!" << std::endl;
-    this->enter(this->lastAttendedClassroom);
+void Professor::prepareForGraduation() {
+    this->closeCourse();
 }

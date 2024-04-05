@@ -2,15 +2,11 @@
 # include "observer.hpp"
 
 void Bell::pauseOverNotification(BellObserver *observer) {
-    if (observer != NULL) {
-        observer->pauseOver();
-    }
+    observer->pauseOver();
 }
 
 void Bell::pauseStartsNotification(BellObserver *observer) {
-    if (observer != NULL) {
-        observer->pauseStarts();
-    }
+    observer->pauseStarts();
 }
 
 void Bell::ring() {

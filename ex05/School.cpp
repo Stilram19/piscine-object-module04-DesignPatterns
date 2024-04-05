@@ -23,24 +23,26 @@ void  School::launchClasses() {
 
 void  School::runDayRoutine() {
     this->launchClasses();
-    this->requestRingBell();
+    this->requestRingBell(BreakRingBell);
     this->launchClasses();
-    this->requestRingBell();
+    this->requestRingBell(LunchRingBell);
     this->launchClasses();
-    this->requestRingBell();
+    this->requestRingBell(BreakRingBell);
     this->launchClasses();
 }
 
-void  School::requestRingBell() {
-    this->headmaster.doEvent(RingBell); // break
+void  School::requestRingBell(Event event) {
+    this->headmaster.bellRing(event);
 }
 
-void  School::recruteProfessor() {
-
+void  School::recruteProfessor(Professor *professor) {
+    List<Professor>::addItem(professor);
+    this->headmaster.subscribeToAllEvents(professor);
 }
 
-void  School::recruteStudent() {
-
+void  School::recruteStudent(Student *student) {
+    List<Student>::addItem(student);
+    this->headmaster.subscribeToAllEvents(student);
 }
 
 // getters
@@ -63,6 +65,6 @@ Secretary School::getSecretary() const {
     return (this->secretary);
 }
 
-Headmaster School::getHeadmaster() const {
-    return (this->headmaster);
+Headmaster *School::getHeadmaster() {
+    return (&this->headmaster);
 }

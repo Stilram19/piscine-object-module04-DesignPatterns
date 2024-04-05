@@ -5,7 +5,7 @@ class Form;
 
 # include "Person.hpp"
 
-class Staff : public Person {
+class Staff : virtual public Person {
     private:
 
     public:

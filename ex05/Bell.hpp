@@ -3,25 +3,14 @@
 
 class BellObserver;
 
-# include "List.hpp"
-
-// this class represents the subject of the Bell event, in which the Professor and Student 
-// are observers
-
-class Bell : public List<BellObserver> {
-    private:
-        bool isPauseOver;
+class Bell {
+    public:
+        virtual ~Bell() {}
 
     public:
-        Bell() : List<BellObserver>(false), isPauseOver(true) {}
-        ~Bell() {}
-
-    private:
-        static void pauseOverNotification(BellObserver *observer);
-        static void pauseStartsNotification(BellObserver *observer);
-
-    public:
-        void ring();
+        virtual void ring() = 0;
+        virtual void addObserver(BellObserver *observer) = 0;
+        virtual void removeObserver(BellObserver *observer) = 0;
 };
 
 #endif

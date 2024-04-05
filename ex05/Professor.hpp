@@ -9,21 +9,23 @@ class Headmaster;
 # define MAX_NUMBER_OF_CLASSES 15 // max number of classes per course
 
 # include "Staff.hpp"
-# include "observer.hpp"
+# include "observers.hpp"
 
 // the Professor and the Student modules are decoupled using the mediator design pattern
 
-class Professor : public Staff, public BellObserver {
+class Professor : public Staff, public BreakBellObserver, public LunchBellObserver, public GraduationBellObserver {
     private:
         int         numberOfClasses;// the number of classes that a student needs to attend
         // in order to graduate the course.
         int         numberOfDoneClasses; // the number of classes done so far by the prof
         Course      *_currentCourse;
         Headmaster  *headmaster;// mediator
-        Classroom   *lastAttendedClassroom;
 
     public:
-        Professor(std::string &p_name, Headmaster *headmaster) : Staff(p_name), numberOfClasses(MANDATORY_NUMBER_OF_CLASSES), \
+        Professor(std::string &p_name, Headmaster *headmaster) : Person(p_name), \
+            BellObserver(p_name), Staff(p_name), BreakBellObserver(p_name, "Professor"), \
+            LunchBellObserver(p_name, "Professor"), \
+            GraduationBellObserver(p_name), numberOfClasses(MANDATORY_NUMBER_OF_CLASSES), \
             numberOfDoneClasses(0), _currentCourse(NULL), headmaster(headmaster) {}
 
     private:
@@ -46,9 +48,9 @@ class Professor : public Staff, public BellObserver {
     public:
         Room *findFreeRoom();
 
+    // implementing the GraudationBellObserver
     public:
-        virtual void pauseOver();
-        virtual void pauseStarts();
+        void prepareForGraduation();
 };
 
 #endif
