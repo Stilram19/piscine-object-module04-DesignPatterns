@@ -19,12 +19,18 @@ void test1() {
 
     School school(headmasterName, SecretaryName);
 
-    Professor prof1(Prof1Name, school.getHeadmaster());
-    Professor prof2(Prof2Name, school.getHeadmaster());
+    Professor prof1(Prof1Name, "Design patterns", school.getHeadmaster());
+    Professor prof2(Prof2Name, "Data Structures and Algorithms", school.getHeadmaster());
     Student student1(school.getHeadmaster(), StudentName1);
     Student student2(school.getHeadmaster(), StudentName2);
 
-    
+    school.recruteProfessor(&prof1);
+    school.recruteProfessor(&prof2);
+
+    school.recruteStudent(&student1);
+    school.recruteStudent(&student2);
+
+    school.runDayRoutine();
 }
 
 int main() {

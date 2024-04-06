@@ -11,22 +11,18 @@ class Professor;
 class NeedCourseCreationForm : public Form
 {
     private:
-        int _minimumGradeToGraduate;
-        int _maximumNumberOfStudents;
         std::string course_name;
         Professor *responsable;
 
     public:
         NeedCourseCreationForm() \
-            : Form(NeedCourseCreation), _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
-            , responsable(NULL) {}
+            : Form(NeedCourseCreation), responsable(NULL) {}
 
         ~NeedCourseCreationForm() {}
 
     public:
         virtual void execute();
-        void fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, \
-            const std::string &course_name, Professor *responsable);
+        void fill_in(const std::string &course_name, Professor *responsable);
 };
 
 #endif

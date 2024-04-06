@@ -18,7 +18,7 @@ class NeedCourseCreationForm : public Form
 
     public:
         NeedCourseCreationForm() \
-            : Form(NeedCourseCreation), _minimumGradeToGraduate(), _maximumNumberOfStudents(0) \
+            : Form(NeedCourseCreation), _minimumGradeToGraduate(0), _maximumNumberOfStudents(0) \
             , responsable(NULL) {}
 
         ~NeedCourseCreationForm() {}

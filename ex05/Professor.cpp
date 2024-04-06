@@ -45,7 +45,7 @@ void Professor::requestNewClassroomCreation() {
     this->headmaster->sign(needMoreClassRoomForm);
 }
 
-void Professor::requestCourseCreation(int _minimumGradeToGraduate, int _maximumNumberOfStudents, const std::string &courseName) {
+void Professor::requestCourseCreation() {
     // requesting the form
     NeedCourseCreationForm *needCourseCreationForm = dynamic_cast<NeedCourseCreationForm *>(this->headmaster->getNewForm(NeedCourseCreation));
 
@@ -53,7 +53,7 @@ void Professor::requestCourseCreation(int _minimumGradeToGraduate, int _maximumN
         return ;
     }
 
-    needCourseCreationForm->fill_in(_minimumGradeToGraduate, _maximumNumberOfStudents, courseName, this);
+    needCourseCreationForm->fill_in(this->courseName, this);
 
     // requesting the signature and execution of the form
     this->headmaster->sign(needCourseCreationForm);
@@ -65,7 +65,7 @@ void Professor::doClass() {
     }
 
     if (this->_currentCourse == NULL) {
-        return ;
+        throw std::runtime_error("Prof has no current course!");
     }
 
     Classroom *classroom = dynamic_cast<Classroom *>(this->findFreeRoom());

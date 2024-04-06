@@ -9,8 +9,8 @@ void NeedCourseCreationForm::execute() {
     }
 
     Course *newCourse = new Course(this->course_name);
-    newCourse->setMinimumGradeToGraduate(this->_minimumGradeToGraduate);
-    newCourse->setMaximumNumberOfStudents(this->_maximumNumberOfStudents);
+    newCourse->setMinimumGradeToGraduate(DEFAULT_MINIMUM_GRADE_TO_GRADUATE);
+    newCourse->setMaximumNumberOfStudents(DEFAULT_MAX_NUMBER_OF_STUDENTS);
 
     this->responsable->assignCourse(newCourse);
     newCourse->assign(this->responsable);
@@ -21,9 +21,7 @@ void NeedCourseCreationForm::execute() {
     instance_ref.addItem(newCourse);
 }
 
-void NeedCourseCreationForm::fill_in(int minimumGradeToGraduate, int maximumNumberOfStudents, const std::string &course_name, Professor *responsable) {
-    this->_minimumGradeToGraduate = minimumGradeToGraduate;
-    this->_minimumGradeToGraduate = maximumNumberOfStudents;
+void NeedCourseCreationForm::fill_in(const std::string &course_name, Professor *responsable) {
     this->responsable = responsable;
     this->course_name = course_name;
 }

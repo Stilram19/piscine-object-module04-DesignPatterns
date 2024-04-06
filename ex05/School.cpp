@@ -7,15 +7,25 @@
 
 void  School::launchClasses() {
     // ask all professors to launch their classes
-    for (std::vector<Professor *>::iterator item = List<Professor>::items.begin(); item != List<Professor>::items.end(); item++) {
-        this->headmaster.askProfToAttendClass(*item);
-        Course *course = (*item)->getCurrentCourse();
-        Classroom *classroom = (*item)->getCurrentClassroom();
+    for (std::vector<Professor *>::iterator prof = List<Professor>::items.begin(); prof != List<Professor>::items.end(); prof++) {
+        try {
+            this->headmaster.askProfToAttendClass(*prof);
+        }
+        catch (const std::runtime_error &e) {
+            (*prof)->requestCourseCreation();
+            this->headmaster.askProfToAttendClass(*prof);
+        }
+
+        Course *course = (*prof)->getCurrentCourse();
+        Classroom *classroom = (*prof)->getCurrentClassroom();
 
         // command all students subscribed to the prof's current course to attend the class
-        for (std::vector<Student *>::iterator item = List<Student>::items.begin(); item != List<Student>::items.end(); item++) {
-            if ((*item)->is_subscribed(course) == true) {
-                this->headmaster.commandStudentToAttendClass(*item, classroom);
+        for (std::vector<Student *>::iterator student = List<Student>::items.begin(); student != List<Student>::items.end(); student++) {
+            if (Student::getCapacity() > (*student)->getCoursesCount()) {
+                (*student)->subscribe(course);
+            }
+            if ((*student)->is_subscribed(course) == true) {
+                this->headmaster.commandStudentToAttendClass(*student, classroom);
             }
         }
     }

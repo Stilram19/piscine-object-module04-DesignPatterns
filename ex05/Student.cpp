@@ -28,7 +28,7 @@ void Student::attendClass(Classroom *p_classroom) {
 
     Course *course = p_classroom->current_course();
 
-    if (this->is_subscribed(course)) {
+    if (this->is_subscribed(course) == true) {
         this->enter(p_classroom);
         this->lastAttendedClassroom = p_classroom;
         this->_subscribedCourse[course]++; // marking the presence of the student
@@ -84,6 +84,10 @@ int Student::getNumberOfAttendedClasses(Course *p_course) {
 
 int Student::getCoursesCount() const {
     return (this->_subscribedCourse.size());
+}
+
+int Student::getCapacity() {
+    return (Student::capacity);
 }
 
 void Student::prepareForGraduation() {

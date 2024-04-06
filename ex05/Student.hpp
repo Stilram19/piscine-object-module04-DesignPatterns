@@ -13,6 +13,8 @@ class Headmaster;
 
 class Student : public BreakBellObserver, public LunchBellObserver, public GraduationBellObserver {
     private:
+        static const int capacity = 5; // max number of courses a student can take at the same time
+    private:
         int passedCoursesCount;
         Headmaster *headmaster;
         std::map<Course*, int> _subscribedCourse; // mapping the course to the number of
@@ -42,6 +44,7 @@ class Student : public BreakBellObserver, public LunchBellObserver, public Gradu
         int getPassedCoursesCount() const;
         int getNumberOfAttendedClasses(Course *course);
         int getCoursesCount() const;
+        static int getCapacity();
 
     // implementing the GraudationBellObserver
     public:
