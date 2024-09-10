@@ -1,10 +1,10 @@
-# Advanced OOP Pescine - Module 04 (Design Patterns)
+# Advanced OOP Piscine - Module 04 (Design Patterns)
 
 ![](images/intro.png)
 
 ## About
 
-this is the fifth module of the advanced OOP pescine, it's about design patterns.
+this is the fifth module of the advanced OOP piscine, it's about design patterns.
 Here is the link to the [subject](https://cdn.intra.42.fr/pdf/pdf/101072/en.subject.pdf)
 
 ## Installation && Usage
